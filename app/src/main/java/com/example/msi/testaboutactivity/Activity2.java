@@ -18,16 +18,16 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity2);
 
-        mNameEt = (EditText)findViewById(R.id.nameEt);
-        mBackBt = (Button)findViewById(R.id.backBt);
+        mNameEt = (EditText) findViewById(R.id.nameEt);
+        mBackBt = (Button) findViewById(R.id.backBt);
         mBackBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putString("name",mNameEt.getText().toString());
+                bundle.putString("name", mNameEt.getText().toString());
                 intent.putExtras(bundle);
-                Activity2.this.setResult(1,intent);
+                Activity2.this.setResult(1, intent);
                 Activity2.this.finish();
             }
         });

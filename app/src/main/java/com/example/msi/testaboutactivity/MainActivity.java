@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mTv1 = null;
     Button mBt1 = null;
+    Button mIntentBt = null;
 
     @Override
     protected void onStart() {
@@ -71,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+
+        mIntentBt = (Button) findViewById(R.id.intentBt);
+        mIntentBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, IntentTest.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -79,10 +90,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("tag:", "onActivityResult");
         if (requestCode == 1) {
             if (resultCode == 1) {
-                Bundle bundle =data.getExtras();
-                if(bundle!=null){
+                Bundle bundle = data.getExtras();
+                if (bundle != null) {
                     Log.d("tag:", "bundle get");
-                    String msg= bundle.getString("name");
+                    String msg = bundle.getString("name");
                     mTv1.setText(msg);
                 }
             }
